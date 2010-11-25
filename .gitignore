@@ -11,6 +11,7 @@
 *.orig
 *.rej
 *~
+*.log
 .classpath
 .project
 .metadata
