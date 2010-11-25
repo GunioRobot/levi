@@ -8,6 +8,7 @@
 *.iws
 *.zip
 *.jar
+*.svn
 *.orig
 *.rej
 *~
