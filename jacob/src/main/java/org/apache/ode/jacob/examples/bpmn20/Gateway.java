@@ -1,7 +1,5 @@
 package org.apache.ode.jacob.examples.bpmn20;
 
-import java.util.List;
-
 /**
  * Created by IntelliJ IDEA.
  * User: ishan
@@ -10,8 +8,8 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public abstract class Gateway extends Node {
-    protected Gateway(List<SequenceFlow> incomingSeqFlow, List<SequenceFlow> outgoingSeqFlow) {
-        super(incomingSeqFlow, outgoingSeqFlow);
+    protected Gateway() {
+        super();
     }
 }
 

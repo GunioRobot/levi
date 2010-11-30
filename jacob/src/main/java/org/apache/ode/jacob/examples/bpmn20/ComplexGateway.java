@@ -2,8 +2,6 @@ package org.apache.ode.jacob.examples.bpmn20;
 
 import org.apache.ode.jacob.examples.bpmn20.event.NodeFactory;
 
-import java.util.List;
-
 /**
  * Created by IntelliJ IDEA.
  * User: ishan
@@ -14,8 +12,8 @@ import java.util.List;
 public class ComplexGateway extends Gateway {
     NodeFactory _nodeFac;
 
-    public ComplexGateway(NodeFactory nodeFac, List<SequenceFlow> incomingsf, List<SequenceFlow> outgoingsf) {
-        super(incomingsf, outgoingsf);
+    public ComplexGateway(NodeFactory nodeFac) {
+        super();
         _nodeFac = nodeFac;
     }
     

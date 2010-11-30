@@ -1,8 +1,7 @@
 package org.apache.ode.jacob.examples.bpmn20;
 
 import org.apache.ode.jacob.examples.bpmn20.event.NodeFactory;
-
-import java.util.List;
+import org.omg.spec.bpmn.x20100524.model.TTask;
 
 /**
  * Created by IntelliJ IDEA.
@@ -12,15 +11,18 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public class Task extends Activity {
+    TTask _task;
     NodeFactory _nodeFac;
 
-    public Task(NodeFactory nodeFac, List<SequenceFlow> incomingsf, List<SequenceFlow> outgoingsf) {
-        super(incomingsf, outgoingsf);
+    public Task(TTask task, NodeFactory nodeFac) {
+        super();
+        _task = task;
         _nodeFac = nodeFac;
     }
     
     public void run() {
-        System.out.println(this.getClassName());
+        System.out.print(this.getClassName());         
+        System.out.println( ": " + _task.getName());
         instance(_nodeFac.createNextNode());
     }
 }

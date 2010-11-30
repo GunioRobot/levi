@@ -4,6 +4,11 @@ import org.apache.ode.jacob.examples.bpmn20.EndEvent;
 import org.apache.ode.jacob.examples.bpmn20.Node;
 import org.apache.ode.jacob.examples.bpmn20.StartEvent;
 import org.apache.ode.jacob.examples.bpmn20.Task;
+import org.omg.spec.bpmn.x20100524.model.*;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -14,20 +19,52 @@ import org.apache.ode.jacob.examples.bpmn20.Task;
  */
 public class NodeFactory {
     private ObjectModel _om;
+    private List<TFlowElement> _flowElemList;
+    private Iterator<TFlowElement> _flowElemI;
 
     public NodeFactory(ObjectModel om) {
         _om = om;
+        makeFlowElementList();
     }
-    
-    public Node createNextNode() {
-        switch (_om.getNextChild()) {
-            case ObjectModel.START_EVENT:
-                return new StartEvent(this, null, null);
-            case ObjectModel.TASK:
-                return new Task(this, null, null);
-            case ObjectModel.END_EVENT:
-                return new EndEvent(null, null);
+
+    private void makeFlowElementList() {
+        assert _om != null;
+        TFlowElement[] flowElems = _om.getFlowElements(0);
+        _flowElemList = new ArrayList<TFlowElement>(flowElems.length);
+        for (int i = 0; i < flowElems.length; ++i) {
+            _flowElemList.add(flowElems[i]);
         }
-        throw new IllegalArgumentException("Unknown type: " + _om.getNextChild());
+        _flowElemI = _flowElemList.iterator();
+    }
+    public Node createNextNode() {
+        if (_flowElemI.hasNext()) {
+            TFlowElement e = _flowElemI.next();
+            if (e instanceof TTask) {
+                return new Task((TTask)e, this);
+            } else if (e instanceof TStartEvent) {
+                return new StartEvent(this);
+            } else if (e instanceof TEndEvent) {
+                return new EndEvent();
+            } else if (e instanceof TSequenceFlow) {
+                TExpression condexp = ((TSequenceFlow)e).getConditionExpression();
+                System.out.println("==> " + (condexp == null ? "" : condexp.xmlText()));
+                return createNextNode();
+            } else if (e instanceof TGateway) {
+                if (e instanceof TExclusiveGateway) {
+                    TExclusiveGateway eg = (TExclusiveGateway)e;
+                    System.out.println("TExclusiveGatewayImpl: " + eg.getName());
+                } else if (e instanceof TParallelGateway) {
+                    System.out.println("TParallelGatewayImpl");
+                } else {
+                    throw new AbstractMethodError("Unsupported Gateway type");
+                }
+                return createNextNode();
+            } else {
+                System.out.println(e.getClass());
+                return createNextNode();
+            }
+        } else {
+            throw new NullPointerException("No more flow elements found");
+        }
     }
 }

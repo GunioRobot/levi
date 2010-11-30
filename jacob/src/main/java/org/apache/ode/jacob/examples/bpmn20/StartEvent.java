@@ -2,8 +2,6 @@ package org.apache.ode.jacob.examples.bpmn20;
 
 import org.apache.ode.jacob.examples.bpmn20.event.NodeFactory;
 
-import java.util.List;
-
 /**
  * Created by IntelliJ IDEA.
  * User: ishan
@@ -14,8 +12,8 @@ import java.util.List;
 public class StartEvent extends Event {
     NodeFactory _nodeFac;
 
-    public StartEvent(NodeFactory nodeFac, List<SequenceFlow> incomingsf, List<SequenceFlow> outgoingsf) {
-        super(incomingsf, outgoingsf);
+    public StartEvent(NodeFactory nodeFac) {
+        super();
         _nodeFac = nodeFac;
     }
     public void run() {

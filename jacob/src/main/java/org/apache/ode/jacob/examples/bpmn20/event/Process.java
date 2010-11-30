@@ -12,7 +12,6 @@ import org.apache.ode.jacob.vpu.JacobVPU;
  */
 public class Process extends BPMNJacobRunnable {
     ObjectModel _om;
-    //Flow _flow;
     ExecutionQueueImpl _soup;
     JacobVPU _vpu;
     NodeFactory _nodeFac;
@@ -21,7 +20,6 @@ public class Process extends BPMNJacobRunnable {
         assert om != null;
         _om = om;
         _nodeFac = new NodeFactory(_om);
-        //_flow = new SequenceFlow();
     }
 
     public void execute() {

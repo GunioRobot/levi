@@ -1,7 +1,15 @@
 package org.apache.ode.jacob.examples.bpmn20.event;
 
+import org.apache.xmlbeans.XmlException;
+import org.omg.spec.bpmn.x20100524.model.DefinitionsDocument;
+import org.omg.spec.bpmn.x20100524.model.TFlowElement;
+import org.omg.spec.bpmn.x20100524.model.TProcess;
+import org.omg.spec.bpmn.x20100524.model.TRootElement;
+import org.omg.spec.bpmn.x20100524.model.impl.TProcessImpl;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -12,31 +20,46 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public class ObjectModel {
-    public static final int START_EVENT = 1;
-    public static final int END_EVENT = 2;
-    public static final int TASK = 3;
+    private DefinitionsDocument _definitionsDoc;
+    private TProcess[] _processArray;
 
-    private List<Integer> _children;
-    private Iterator<Integer> _i;
-
-    public ObjectModel() {
-        _children = new ArrayList<Integer>();
-        init();
-        _i = _children.iterator();
+    public ObjectModel(File instance) {
+        assert instance != null;        
+        init(instance);
     }
 
-    private void init() {
-        _children.add(new Integer(START_EVENT));
-        _children.add(new Integer(TASK));
-        _children.add(new Integer(TASK));
-        _children.add(new Integer(TASK));
-        _children.add(new Integer(END_EVENT));
+    private void init(File instance) {
+        try {
+            _definitionsDoc = DefinitionsDocument.Factory.parse(instance);
+        } catch (XmlException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        } catch (IOException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+        _processArray = getProcessArray();
+    }
+
+    /**
+     * returns the executable processes list of the current instance document
+     * @return
+     */
+    private TProcess[] getProcessArray() {
+        List<TProcess> list = new ArrayList<TProcess>();
+        TRootElement[] rootElementArray = _definitionsDoc.getDefinitions().getRootElementArray();
+        for (int i = 0; i < rootElementArray.length; ++i) {
+            if (rootElementArray[i] instanceof TProcessImpl) {
+                TProcessImpl p = (TProcessImpl)rootElementArray[i];
+                if (p.getIsExecutable()) {
+                    list.add(p);
+                }
+            }
+        }
+        return list.toArray(new TProcess[list.size()]);
     }
     
-    public int getNextChild() {
-        if (_i.hasNext()) {
-            return _i.next();
-        }
-        return -1;
+    public TFlowElement[] getFlowElements(int processId) {
+        assert processId >= 0;
+        assert processId < _processArray.length;
+        return _processArray[processId].getFlowElementArray();
     }
 }
