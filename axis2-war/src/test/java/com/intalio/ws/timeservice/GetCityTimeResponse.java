@@ -5,23 +5,23 @@
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.5.1  Built on : Oct 19, 2009 (10:59:34 EDT)
  */
-            
+
                 package com.intalio.ws.timeservice;
-            
+
 
             /**
             *  GetCityTimeResponse bean class
             */
-        
+
         public  class GetCityTimeResponse
         implements org.apache.axis2.databinding.ADBBean{
-        
+
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://ws.intalio.com/TimeService/",
                 "getCityTimeResponse",
                 "ns1");
 
-            
+
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://ws.intalio.com/TimeService/")){
@@ -30,21 +30,21 @@
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
 
-        
+
 
                         /**
                         * field for GetCityTimeResult
                         */
 
-                        
+
                                     protected java.lang.String localGetCityTimeResult ;
-                                
+
                            /*  This tracker boolean wil be used to detect whether the user called the set method
                           *   for this attribute. It will be used to determine whether to include this field
                            *   in the serialized XML
                            */
                            protected boolean localGetCityTimeResultTracker = false ;
-                           
+
 
                            /**
                            * Auto generated getter method
@@ -54,27 +54,27 @@
                                return localGetCityTimeResult;
                            }
 
-                           
-                        
+
+
                             /**
                                * Auto generated setter method
                                * @param param GetCityTimeResult
                                */
                                public void setGetCityTimeResult(java.lang.String param){
-                            
+
                                        if (param != null){
                                           //update the setting tracker
                                           localGetCityTimeResultTracker = true;
                                        } else {
                                           localGetCityTimeResultTracker = false;
-                                              
+
                                        }
-                                   
+
                                             this.localGetCityTimeResult=param;
-                                    
+
 
                                }
-                            
+
 
      /**
      * isReaderMTOMAware
@@ -82,7 +82,7 @@
      */
    public static boolean isReaderMTOMAware(javax.xml.stream.XMLStreamReader reader) {
         boolean isReaderMTOMAware = false;
-        
+
         try{
           isReaderMTOMAware = java.lang.Boolean.TRUE.equals(reader.getProperty(org.apache.axiom.om.OMConstants.IS_DATA_HANDLERS_AWARE));
         }catch(java.lang.IllegalArgumentException e){
@@ -90,8 +90,8 @@
         }
         return isReaderMTOMAware;
    }
-     
-     
+
+
         /**
         *
         * @param parentQName
@@ -103,7 +103,7 @@
                final org.apache.axiom.om.OMFactory factory) throws org.apache.axis2.databinding.ADBException{
 
 
-        
+
                 org.apache.axiom.om.OMDataSource dataSource =
                        new org.apache.axis2.databinding.ADBDataSource(this,MY_QNAME){
 
@@ -113,7 +113,7 @@
                };
                return new org.apache.axiom.om.impl.llom.OMSourcedElementImpl(
                MY_QNAME,factory,dataSource);
-            
+
        }
 
          public void serialize(final javax.xml.namespace.QName parentQName,
@@ -128,13 +128,13 @@
                                org.apache.axis2.databinding.utils.writer.MTOMAwareXMLStreamWriter xmlWriter,
                                boolean serializeType)
             throws javax.xml.stream.XMLStreamException, org.apache.axis2.databinding.ADBException{
-            
-                
+
+
 
 
                 java.lang.String prefix = null;
                 java.lang.String namespace = null;
-                
+
 
                     prefix = parentQName.getPrefix();
                     namespace = parentQName.getNamespaceURI();
@@ -155,9 +155,9 @@
                     } else {
                         xmlWriter.writeStartElement(parentQName.getLocalPart());
                     }
-                
+
                   if (serializeType){
-               
+
 
                    java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://ws.intalio.com/TimeService/");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
@@ -170,7 +170,7 @@
                            xmlWriter);
                    }
 
-               
+
                    }
                 if (localGetCityTimeResultTracker){
                                     namespace = "http://ws.intalio.com/TimeService/";
@@ -191,24 +191,24 @@
                                     } else {
                                         xmlWriter.writeStartElement("getCityTimeResult");
                                     }
-                                
+
 
                                           if (localGetCityTimeResult==null){
                                               // write the nil attribute
-                                              
+
                                                      throw new org.apache.axis2.databinding.ADBException("getCityTimeResult cannot be null!!");
-                                                  
+
                                           }else{
 
-                                        
+
                                                    xmlWriter.writeCharacters(localGetCityTimeResult);
-                                            
+
                                           }
-                                    
+
                                    xmlWriter.writeEndElement();
                              }
                     xmlWriter.writeEndElement();
-               
+
 
         }
 
@@ -355,7 +355,7 @@
             }
 
 
-  
+
         /**
         * databinding method to get an XML representation of this object
         *
@@ -364,14 +364,14 @@
                     throws org.apache.axis2.databinding.ADBException{
 
 
-        
+
                  java.util.ArrayList elementList = new java.util.ArrayList();
                  java.util.ArrayList attribList = new java.util.ArrayList();
 
                  if (localGetCityTimeResultTracker){
                                       elementList.add(new javax.xml.namespace.QName("http://ws.intalio.com/TimeService/",
                                                                       "getCityTimeResult"));
-                                 
+
                                         if (localGetCityTimeResult != null){
                                             elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localGetCityTimeResult));
                                         } else {
@@ -380,20 +380,20 @@
                                     }
 
                 return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
-            
-            
+
+
 
         }
 
-  
+
 
      /**
       *  Factory class that keeps the parse method
       */
     public static class Factory{
 
-        
-        
+
+
 
         /**
         * static method to create the object
@@ -411,11 +411,11 @@
             java.lang.String prefix ="";
             java.lang.String namespaceuri ="";
             try {
-                
+
                 while (!reader.isStartElement() && !reader.isEndElement())
                     reader.next();
 
-                
+
                 if (reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","type")!=null){
                   java.lang.String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
                         "type");
@@ -427,57 +427,57 @@
                     nsPrefix = nsPrefix==null?"":nsPrefix;
 
                     java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
-                    
+
                             if (!"getCityTimeResponse".equals(type)){
                                 //find namespace for the prefix
                                 java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
                                 return (GetCityTimeResponse)com.intalio.ws.timeservice.ExtensionMapper.getTypeObject(
                                      nsUri,type,reader);
                               }
-                        
+
 
                   }
-                
+
 
                 }
 
-                
 
-                
+
+
                 // Note all attributes that were handled. Used to differ normal attributes
                 // from anyAttributes.
                 java.util.Vector handledAttributes = new java.util.Vector();
-                
 
-                 
-                    
+
+
+
                     reader.next();
-                
-                                    
+
+
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
-                                
+
                                     if (reader.isStartElement() && new javax.xml.namespace.QName("http://ws.intalio.com/TimeService/","getCityTimeResult").equals(reader.getName())){
-                                
+
                                     java.lang.String content = reader.getElementText();
-                                    
+
                                               object.setGetCityTimeResult(
                                                     org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
-                                              
+
                                         reader.next();
-                                    
+
                               }  // End of if for expected property start element
-                                
+
                                     else {
-                                        
+
                                     }
-                                  
+
                             while (!reader.isStartElement() && !reader.isEndElement())
                                 reader.next();
-                            
+
                                 if (reader.isStartElement())
                                 // A start element we are not expecting indicates a trailing invalid property
                                 throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getLocalName());
-                            
+
 
 
 
@@ -490,8 +490,7 @@
 
         }//end of factory class
 
-        
+
 
         }
-           
-          
+

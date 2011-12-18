@@ -282,7 +282,7 @@ public class PartnerLinkMyRoleImpl extends PartnerLinkRoleImpl {
 
                 // No match, means we add message exchange to the queue.
                 routing.correlator.enqueueMessage(mex.getDAO(), routing.wholeKeySet);
-                
+
                 // Second matcher needs to be registered here
                 JobDetails we = new JobDetails();
                 we.setType(JobType.MEX_MATCHER);
@@ -344,7 +344,7 @@ public class PartnerLinkMyRoleImpl extends PartnerLinkRoleImpl {
     private CorrelationKey computeCorrelationKey(OScope.CorrelationSet cset, OMessageVarType messagetype,
             Element msg, Map<String, Node> headerParts) {
     	CorrelationKey key = null;
-    	
+
         String[] values = new String[cset.properties.size()];
 
         int jIdx = 0;

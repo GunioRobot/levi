@@ -36,9 +36,9 @@ public class OdeActivator implements BundleActivator {
 
     private File rootDir;
     private String generatedName;
-    
+
     private ODEAxis2Server server;
-    
+
     public void start(BundleContext context) throws Exception {
         System.out.println("start ode process");
 //        generatedName = context.getBundle().getSymbolicName();
@@ -84,7 +84,7 @@ public class OdeActivator implements BundleActivator {
 
     public void stop(BundleContext context) throws Exception {
         System.out.println("stop ode process");
-        
+
 //        ServiceReference[] refs = context.getAllServiceReferences(
 //                "javax.jbi.component.Component", "(&(NAME=OdeBpelEngine))");
 //        if (refs == null || refs.length != 1) {

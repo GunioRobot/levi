@@ -217,7 +217,7 @@ public class IMAManager implements Serializable {
     public String toString() {
         return ObjectPrinter.toString(this, new Object[] { "byRid", _byRid, "byOrid", _byOrid, "byChannel", _byChannel });
     }
-    
+
     public IMAManager2 toIMAManager2() {
         IMAManager2 newIMA = new IMAManager2();
         for (String channel : _byChannel.keySet()) {
@@ -259,7 +259,7 @@ public class IMAManager implements Serializable {
         public boolean equals(Object obj) {
             RequestIdTuple other = (RequestIdTuple) obj;
             return other.partnerLink.equals(partnerLink) && other.opName.equals(opName);
-        } 
+        }
 
         public String toString() {
             return ObjectPrinter.toString(this, new Object[] { "partnerLink", partnerLink, "opName", opName});

@@ -47,7 +47,7 @@ public class RetriesTest extends Assert implements Scheduler.JobProcessor {
     TransactionManager _txm;
     int _tried = 0;
     Scheduler.JobInfo _jobInfo = null;
-    
+
     @Before
     public void setUp() throws Exception {
         _txm = new GeronimoTransactionManager();
@@ -57,12 +57,12 @@ public class RetriesTest extends Assert implements Scheduler.JobProcessor {
         _jobs = new ArrayList<Scheduler.JobInfo>(100);
         _commit = new ArrayList<Scheduler.JobInfo>(100);
     }
-    
+
     @After
     public void tearDown() throws Exception {
         _scheduler.shutdown();
     }
-    
+
     @Test
     public void testRetries() throws Exception {
         // speed things up a bit to hit the right code paths
@@ -79,7 +79,7 @@ public class RetriesTest extends Assert implements Scheduler.JobProcessor {
         Thread.sleep(10000);
         assertEquals(6, _tried);
     }
-    
+
     @Test
     public void testExecTransaction() throws Exception {
         final int[] tryCount = new int[1];

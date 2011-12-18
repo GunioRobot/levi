@@ -33,7 +33,7 @@ public class StructuredActivities20Test extends BPELTestAbstract {
         // Test Flow with XPath10
         go("/bpel/2.0/TestFlowLinks");
     }
-    
+
     @Test public void testIsolatedScopes1() throws Throwable {
         // Test Flow with XPath10
         go("/bpel/2.0/TestIsolatedScopes1");

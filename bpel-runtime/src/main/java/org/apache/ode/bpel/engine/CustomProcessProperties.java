@@ -35,7 +35,7 @@ public class CustomProcessProperties {
 
     public Node getProperty(QName propertyName) {
         String name = propertyName.getLocalPart();
-        try { 
+        try {
             if (name.equals("ode.localhost.name")) {
                 return stringToNode(InetAddress.getLocalHost().getHostName());
             } else if (name.equals("ode.localhost.address")) {
@@ -48,7 +48,7 @@ public class CustomProcessProperties {
             return null;
         }
     }
-    
+
     public static Node stringToNode(String s) {
         Document d = DOMUtils.newDocument();
         Element e = d.createElement("value");

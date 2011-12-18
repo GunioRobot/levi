@@ -88,15 +88,15 @@ public class PROCESS extends BpelJacobRunnable {
 
     private void createGlobals() {
         _globals = new InstanceGlobals();
-        
+
         // For each variable, we create a lock.
-        for (OBase child : _oprocess.getChildren()) 
+        for (OBase child : _oprocess.getChildren())
             if (child instanceof OScope.Variable) {
                 OScope.Variable var = (Variable) child;
                 ReadWriteLockChannel vlock = newChannel(ReadWriteLockChannel.class);
                 instance(new READWRITELOCK(vlock));
                 _globals._varLocks.put(var, vlock);
-                
+
             }
     }
 }

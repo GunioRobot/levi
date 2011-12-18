@@ -25,8 +25,8 @@ import org.apache.ode.jacob.ap.ChannelType;
 public interface ReadWriteLock {
 
     public void readLock(SynchChannel s);
-    
+
     public void writeLock(SynchChannel s);
-    
+
     public void unlock(SynchChannel s);
 }

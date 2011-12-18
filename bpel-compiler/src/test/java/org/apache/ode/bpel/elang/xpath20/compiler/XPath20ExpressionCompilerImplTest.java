@@ -80,14 +80,14 @@ public class XPath20ExpressionCompilerImplTest {
             }
         }
     }
-    
+
     @Test
     public void testExtractFunctionsExprs() throws Exception {
         XPath20ExpressionCompilerImpl xp20Exp = new XPath20ExpressionCompilerImpl(TEST_NAMESPACE);
         final Method[] methods =
             xp20Exp.getClass().getDeclaredMethods();
         String ODE_840 = "bpel:doXslTransform(\"1.0.1/some.xsl\", $Variable.body, \"someParameter\", $OtherVariable.body, \"someParameter2\", $SwsHeaderRQ, \"someParameter3\", true(), \"someXpathParameter\", $XPath)";
-        
+
         for (int i = 0; i < methods.length; ++i) {
             if (methods[i].getName().equals(EXTRACT_FUNCTION_EXPRS)) {
                 final Object params[] = { ODE_840};
@@ -98,7 +98,7 @@ public class XPath20ExpressionCompilerImplTest {
                 Assert.assertEquals("Unexpected Function value", ODE_840, (String)values.get(0));
             }
         }
-        
+
     }
 
 

@@ -41,9 +41,9 @@ public abstract class AbstractCompileTestCase implements CompileListener {
         _errors.add(compilationMessage);
         __log.debug(compilationMessage.toString());
     }
-    
+
     public abstract void runTest(String bpel) throws Exception;
-    
+
     @Before
     public void setUp() throws Exception {
         _compiler = BpelC.newBpelCompiler();
@@ -51,11 +51,11 @@ public abstract class AbstractCompileTestCase implements CompileListener {
         _compiler.setOutputStream(new ByteArrayOutputStream(StreamUtils.DEFAULT_BUFFER_SIZE));
         _errors.clear();
     }
-    
+
     @After
     public void tearDown() throws Exception {
         _compiler = null;
         _errors.clear();
     }
-    
+
 }

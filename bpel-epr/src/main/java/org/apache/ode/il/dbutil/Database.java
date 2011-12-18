@@ -57,7 +57,7 @@ public abstract class Database {
     public static Database create(OdeConfigProperties props) {
         if (props == null)
             throw new NullPointerException("Must provide a configuration.");
-        
+
         switch (props.getDbMode()) {
         case EMBEDDED: return new EmbeddedDB(props);
         case EXTERNAL: return new ExternalDB(props);
@@ -65,7 +65,7 @@ public abstract class Database {
         default: throw new IllegalStateException();
         }
     }
-    
+
     public Database(OdeConfigProperties props) {
         _odeConfig = props;
     }

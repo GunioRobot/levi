@@ -112,7 +112,7 @@ public class XPath20ExpressionCompilerImpl implements ExpressionCompiler {
     public OLValueExpression compileLValue(Object source) throws CompilationException {
         return (OLValueExpression) _compile((Expression) source, false);
     }
-    
+
     /**
      * @see org.apache.ode.bpel.compiler.api.ExpressionCompiler#compile(java.lang.Object)
      */

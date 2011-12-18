@@ -29,9 +29,9 @@ import org.apache.ode.jacob.SynchChannel;
 
 /**
  * A fair READ-WRITE lock.
- * 
+ *
  * @author Maciej Szefler <mszefler at gmail dot com>
- * 
+ *
  */
 public class READWRITELOCK extends JacobRunnable {
 
@@ -40,7 +40,7 @@ public class READWRITELOCK extends JacobRunnable {
     private static enum Status {
         UNLOCKED, READLOCK, WRITELOCK,
     }
-    
+
     private LinkedList<Waiter> _waiters = new LinkedList<Waiter>();
 
     private HashSet<SynchChannel> _owners = new HashSet<SynchChannel>();
@@ -137,5 +137,5 @@ public class READWRITELOCK extends JacobRunnable {
         }
     }
 
-  
+
 }

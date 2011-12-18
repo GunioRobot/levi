@@ -97,11 +97,11 @@ public class BPELDAOConnectionImpl implements BpelDAOConnection {
         _em.persist(ret);
         return ret;
     }
-    
+
     public ProcessDAO createTransientProcess(Long id) {
         ProcessDAOImpl ret = new ProcessDAOImpl(null, null, null, 0);
         ret.setId(id);
-        
+
         return ret;
     }
 

@@ -5,23 +5,23 @@
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.5.1  Built on : Oct 19, 2009 (10:59:34 EDT)
  */
-            
+
                 package com.intalio.ws.timeservice;
-            
+
 
             /**
             *  GetUTCTime bean class
             */
-        
+
         public  class GetUTCTime
         implements org.apache.axis2.databinding.ADBBean{
-        
+
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://ws.intalio.com/TimeService/",
                 "getUTCTime",
                 "ns1");
 
-            
+
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://ws.intalio.com/TimeService/")){
@@ -30,15 +30,15 @@
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
 
-        
+
 
                         /**
                         * field for GetUTCTime
                         */
 
-                        
+
                                     protected java.lang.String localGetUTCTime ;
-                                
+
 
                            /**
                            * Auto generated getter method
@@ -48,19 +48,19 @@
                                return localGetUTCTime;
                            }
 
-                           
-                        
+
+
                             /**
                                * Auto generated setter method
                                * @param param GetUTCTime
                                */
                                public void setGetUTCTime(java.lang.String param){
-                            
+
                                             this.localGetUTCTime=param;
-                                    
+
 
                                }
-                            
+
 
      /**
      * isReaderMTOMAware
@@ -68,7 +68,7 @@
      */
    public static boolean isReaderMTOMAware(javax.xml.stream.XMLStreamReader reader) {
         boolean isReaderMTOMAware = false;
-        
+
         try{
           isReaderMTOMAware = java.lang.Boolean.TRUE.equals(reader.getProperty(org.apache.axiom.om.OMConstants.IS_DATA_HANDLERS_AWARE));
         }catch(java.lang.IllegalArgumentException e){
@@ -76,8 +76,8 @@
         }
         return isReaderMTOMAware;
    }
-     
-     
+
+
         /**
         *
         * @param parentQName
@@ -89,7 +89,7 @@
                final org.apache.axiom.om.OMFactory factory) throws org.apache.axis2.databinding.ADBException{
 
 
-        
+
                 org.apache.axiom.om.OMDataSource dataSource =
                        new org.apache.axis2.databinding.ADBDataSource(this,MY_QNAME){
 
@@ -99,7 +99,7 @@
                };
                return new org.apache.axiom.om.impl.llom.OMSourcedElementImpl(
                MY_QNAME,factory,dataSource);
-            
+
        }
 
          public void serialize(final javax.xml.namespace.QName parentQName,
@@ -114,13 +114,13 @@
                                org.apache.axis2.databinding.utils.writer.MTOMAwareXMLStreamWriter xmlWriter,
                                boolean serializeType)
             throws javax.xml.stream.XMLStreamException, org.apache.axis2.databinding.ADBException{
-            
-                
+
+
                 //We can safely assume an element has only one type associated with it
-                
+
                             java.lang.String namespace = "http://ws.intalio.com/TimeService/";
                             java.lang.String localName = "getUTCTime";
-                        
+
                             if (! namespace.equals("")) {
                                 java.lang.String prefix = xmlWriter.getPrefix(namespace);
 
@@ -152,20 +152,20 @@
                                            xmlWriter);
                                    }
                                }
-                            
+
                                           if (localGetUTCTime==null){
-                                            
+
                                                      throw new org.apache.axis2.databinding.ADBException("Value cannot be null !!");
-                                                
+
                                          }else{
-                                        
+
                                                        xmlWriter.writeCharacters(localGetUTCTime);
-                                            
+
                                          }
-                                    
+
                             xmlWriter.writeEndElement();
 
-                    
+
 
         }
 
@@ -312,7 +312,7 @@
             }
 
 
-  
+
         /**
         * databinding method to get an XML representation of this object
         *
@@ -321,8 +321,8 @@
                     throws org.apache.axis2.databinding.ADBException{
 
 
-        
-                
+
+
                 //We can safely assume an element has only one type associated with it
                  return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(MY_QNAME,
                             new java.lang.Object[]{
@@ -333,15 +333,15 @@
 
         }
 
-  
+
 
      /**
       *  Factory class that keeps the parse method
       */
     public static class Factory{
 
-        
-        
+
+
 
         /**
         * static method to create the object
@@ -359,41 +359,41 @@
             java.lang.String prefix ="";
             java.lang.String namespaceuri ="";
             try {
-                
+
                 while (!reader.isStartElement() && !reader.isEndElement())
                     reader.next();
 
-                
 
-                
+
+
                 // Note all attributes that were handled. Used to differ normal attributes
                 // from anyAttributes.
                 java.util.Vector handledAttributes = new java.util.Vector();
-                
 
-                    
+
+
                 while(!reader.isEndElement()) {
                     if (reader.isStartElement() ){
-                
+
                                     if (reader.isStartElement() && new javax.xml.namespace.QName("http://ws.intalio.com/TimeService/","getUTCTime").equals(reader.getName())){
-                                
+
                                     java.lang.String content = reader.getElementText();
-                                    
+
                                               object.setGetUTCTime(
                                                     org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
-                                            
+
                               }  // End of if for expected property start element
-                                
+
                              else{
                                         // A start element we are not expecting indicates an invalid parameter was passed
                                         throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getLocalName());
                              }
-                          
+
                              } else {
                                 reader.next();
-                             }  
+                             }
                            }  // end of while loop
-                        
+
 
 
 
@@ -406,8 +406,7 @@
 
         }//end of factory class
 
-        
+
 
         }
-           
-          
+

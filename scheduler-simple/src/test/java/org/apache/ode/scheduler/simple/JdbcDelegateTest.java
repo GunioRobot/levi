@@ -40,7 +40,7 @@ public class JdbcDelegateTest extends Assert {
 
     private DelegateSupport _ds;
     private DatabaseDelegate _del;
-    
+
     @Before
     public void setUp() throws Exception {
         _ds = new DelegateSupport();
@@ -73,7 +73,7 @@ public class JdbcDelegateTest extends Assert {
         assertTrue(nids.contains("abc"));
         assertTrue(nids.contains("123"));
     }
-    
+
     @Test
     public void testReassign() throws Exception {
         _del.insertJob(new Job(100L,"j1",true,new Scheduler.JobDetails()), "n1", false);
@@ -83,7 +83,7 @@ public class JdbcDelegateTest extends Assert {
         List<Job> jobs = _del.dequeueImmediate("n2", 400L, 1000);
         assertEquals(2,jobs.size());
     }
-    
+
     @Test
     public void testScheduleImmediateTimeFilter() throws Exception {
         _del.insertJob(new Job(100L,"j1",true,new Scheduler.JobDetails()), "n1", false);
@@ -100,7 +100,7 @@ public class JdbcDelegateTest extends Assert {
         assertEquals("j1",jobs.get(0).jobId);
         assertEquals("j2",jobs.get(1).jobId);
     }
-    
+
     @Test
     public void testScheduleImmediateMaxRows() throws Exception {
         _del.insertJob(new Job(100L,"j1",true,new Scheduler.JobDetails()), "n1", false);
@@ -111,7 +111,7 @@ public class JdbcDelegateTest extends Assert {
         assertEquals(1, jobs.size());
         assertEquals("j1",jobs.get(0).jobId);
     }
-    
+
     @Test
     public void testScheduleImmediateNodeFilter() throws Exception {
         _del.insertJob(new Job(100L,"j1",true,new Scheduler.JobDetails()), "n1", false);
@@ -122,7 +122,7 @@ public class JdbcDelegateTest extends Assert {
         assertEquals(1, jobs.size());
         assertEquals("j2",jobs.get(0).jobId);
     }
-    
+
     @Test
     public void testDeleteJob() throws Exception {
         _del.insertJob(new Job(100L,"j1",true,new Scheduler.JobDetails()), "n1", false);
@@ -140,7 +140,7 @@ public class JdbcDelegateTest extends Assert {
         assertTrue(_del.deleteJob("j1", "n1"));
         assertEquals(1,_del.getNodeIds().size());
     }
-    
+
     @Test
     public void testUpgrade() throws Exception {
         for (int i = 0; i < 200; ++i)
@@ -157,7 +157,7 @@ public class JdbcDelegateTest extends Assert {
         assertEquals(n2,_del.dequeueImmediate("n2", 10000L, 1000).size());
         assertEquals(n3,_del.dequeueImmediate("n3", 10000L, 1000).size());
     }
-    
+
     @Test
     public void testMigration() throws Exception {
         Scheduler.JobDetails j1 = new Scheduler.JobDetails();

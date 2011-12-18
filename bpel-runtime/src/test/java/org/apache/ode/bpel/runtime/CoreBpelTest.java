@@ -475,7 +475,7 @@ public class CoreBpelTest extends TestCase implements BpelRuntimeContext {
 
     public void forceFlush() {
         // TODO Auto-generated method stub
-        
+
     }
 
     public void checkInvokeExternalPermission() {}

@@ -134,7 +134,7 @@ class WSDLRegistry {
                 __log.info("WSDL at " + defuri + " is a duplicate import, your documents " +
                         "should all be in different namespaces (its's not nice but will still work).");
             }
-            
+
             for (Definition4BPEL aDef : _definitions.get(def.getTargetNamespace())) {
                 if (aDef.getDocumentBaseURI().equals(def.getDocumentBaseURI())) {
                     if (__log.isInfoEnabled()) {

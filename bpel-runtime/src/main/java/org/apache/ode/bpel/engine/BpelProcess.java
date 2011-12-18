@@ -1165,7 +1165,7 @@ public class BpelProcess {
     public long getVersion() {
         return Long.parseLong(_pid.getLocalPart().substring(_pid.getLocalPart().lastIndexOf('-') + 1));
     }
-    
+
     public void doAsyncReply(MyRoleMessageExchangeImpl m, BpelRuntimeContext context) {
         MessageExchangeDAO mex = m.getDAO();
         PartnerRoleMessageExchange pmex = null;
@@ -1219,5 +1219,5 @@ public class BpelProcess {
             //mex.release(_bpelProcess.isCleanupCategoryEnabled(m.getStatus() == MessageExchange.Status.RESPONSE, CLEANUP_CATEGORY.MESSAGES));
         }
     }
-    
+
 }

@@ -676,7 +676,7 @@ public abstract class BpelCompiler implements CompilerContext {
         _oprocess.constants = makeConstants();
         _oprocess.debugInfo = createDebugInfo(process, "process");
         _oprocess.namespaceContext = process.getNamespaceContext();
-        
+
         if (process.getTargetNamespace() == null) {
             _oprocess.targetNamespace = "--UNSPECIFIED--";
             recoveredFromError(process, new CompilationException(__cmsgs.errProcessNamespaceNotSpecified()));

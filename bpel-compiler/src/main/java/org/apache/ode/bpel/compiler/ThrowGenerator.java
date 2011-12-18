@@ -31,7 +31,7 @@ import org.apache.ode.utils.msg.MessageBundle;
  */
 class ThrowGenerator extends DefaultActivityGenerator {
     private static final ThrowGeneratorMessages __cmsgs = MessageBundle.getMessages(ThrowGeneratorMessages.class);
-    
+
     public OActivity newInstance(Activity src) {
         return new OThrow(_context.getOProcess(), _context.getCurrent());
     }
@@ -41,7 +41,7 @@ class ThrowGenerator extends DefaultActivityGenerator {
         OThrow othrow = (OThrow) output;
 
         if (throwDef.getFaultName() == null)
-            throw new CompilationException(__cmsgs.errThrowMustDefineFaultName()); 
+            throw new CompilationException(__cmsgs.errThrowMustDefineFaultName());
 
         othrow.faultName = throwDef.getFaultName();
         if(throwDef.getFaultVariable() != null)

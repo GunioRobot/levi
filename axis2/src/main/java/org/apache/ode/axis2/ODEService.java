@@ -107,7 +107,7 @@ public class ODEService {
         try {
             _txManager.begin();
             if (__log.isDebugEnabled()) __log.debug("Starting transaction.");
-            
+
             _server.acquireTransactionLocks();
 
             // Creating message exchange

@@ -41,7 +41,7 @@ public class ExternalDB extends Database {
             throw new DatabaseConfigException(msg, ex);
         }
     }
-    
+
     @SuppressWarnings("unchecked")
     private <T> T lookupInJndi(String objName) throws Exception {
         ClassLoader old = Thread.currentThread().getContextClassLoader();

@@ -67,7 +67,7 @@ public class XSUtils {
         input.setByteStream(new ByteArrayInputStream(schemaData));
 
         Map<URI, byte[]> ret = captureSchema(input, resolver);
-        
+
         URI localURI = localSchemaId == 0 ? systemURI : URI.create(systemURI.toString() + '.' + localSchemaId);
         ret.put(localURI, schemaData);
         return ret;

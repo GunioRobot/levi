@@ -26,7 +26,7 @@ public class EmbeddedDB extends InternalDB {
     public EmbeddedDB(OdeConfigProperties props) {
         super(props);
     }
-    
+
     /**
      * Initialize embedded (DERBY) database.
      */

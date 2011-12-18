@@ -24,9 +24,9 @@ Finally here is a non exhaustive but representative features list:
  * Compliant with both BPEL4WS 1.1 and WS-BPEL 2.0.
  * Deploys both as a WAR in any web container (using an Axis2-based
  communication layer) or as a JBI service assembly.
- * Small footprint server suitable for experimentation or 
+ * Small footprint server suitable for experimentation or
  single-server production use.
- * Compiled approach to BPEL that provides detailed analysis and 
+ * Compiled approach to BPEL that provides detailed analysis and
  validation at the command line or at deployment.
  * Processes hot deployment and management web service interface (war
  deployment only).

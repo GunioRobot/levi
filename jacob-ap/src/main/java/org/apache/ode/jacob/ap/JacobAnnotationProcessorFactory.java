@@ -33,8 +33,8 @@ import com.sun.mirror.declaration.AnnotationTypeDeclaration;
 public class JacobAnnotationProcessorFactory implements AnnotationProcessorFactory {
 
     private static final List<String> __supported  = Arrays.asList(
-            new String[] { "org.apache.ode.jacob.ap.ChannelType" }); 
-    
+            new String[] { "org.apache.ode.jacob.ap.ChannelType" });
+
     public Collection<String> supportedOptions() {
         return Collections.emptyList();
     }
@@ -44,15 +44,15 @@ public class JacobAnnotationProcessorFactory implements AnnotationProcessorFacto
     }
 
     public AnnotationProcessor getProcessorFor(Set<AnnotationTypeDeclaration> atd, AnnotationProcessorEnvironment ape) {
-        
+
         if (atd.isEmpty())
             return AnnotationProcessors.NO_OP;
-        
+
         for (AnnotationTypeDeclaration a: atd) {
             if (a.getQualifiedName().equals("org.apache.ode.jacob.ap.ChannelType"))
                 return  new ChannelTypeAnnotationProcessor(a,ape);
         }
         return AnnotationProcessors.NO_OP;
     }
-   
+
 }

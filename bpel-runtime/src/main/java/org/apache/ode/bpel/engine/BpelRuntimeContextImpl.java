@@ -139,7 +139,7 @@ public class BpelRuntimeContextImpl implements BpelRuntimeContext {
     protected BpelProcess _bpelProcess;
 
     private Date _currentEventDateTime;
-    
+
     private boolean _forceFlush;
 
     /** Five second maximum for continous execution. */
@@ -1110,7 +1110,7 @@ public class BpelRuntimeContextImpl implements BpelRuntimeContext {
     	if (debugInfo == null) return "";
     	else return " at " + debugInfo.sourceURI + ":" + debugInfo.startLine;
     }
-    
+
     /**
      * We record all values of properties of a 'MessageType' variable for
      * efficient lookup.

@@ -80,7 +80,7 @@ public class OProcess extends OBase {
     public final HashMap<URI, OXslSheet> xslSheets = new HashMap<URI, OXslSheet>();
 
     public NSContext namespaceContext = null;
-    
+
     public OProcess(String bpelVersion) {
         super(null);
         this.version = bpelVersion;

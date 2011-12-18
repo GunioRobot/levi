@@ -61,7 +61,7 @@ public class Contexts {
 
     /** Mapping from external variable engine identifier to the engine implementation. */
     final HashMap<QName, ExternalVariableModule> externalVariableEngines = new HashMap<QName, ExternalVariableModule>();
-    
-    public CustomProcessProperties customProcessProperties = new CustomProcessProperties(); 
+
+    public CustomProcessProperties customProcessProperties = new CustomProcessProperties();
 
 }

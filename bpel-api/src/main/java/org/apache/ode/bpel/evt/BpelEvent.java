@@ -29,7 +29,7 @@ import java.util.Date;
  */
 public abstract class BpelEvent implements Serializable {
     private static final long serialVersionUID = 2904857392517854573L;
-    
+
     public enum TYPE {
         dataHandling, activityLifecycle, scopeHandling, instanceLifecycle, correlation;
     }
@@ -38,7 +38,7 @@ public abstract class BpelEvent implements Serializable {
      * Bpel Event Context. In Event Listeners, use this to get Variable Data
      */
     public transient EventContext eventContext;
-    
+
     public transient boolean _cancelEventPersisting = false;
 
     private Date _timestamp = new Date();
@@ -60,7 +60,7 @@ public abstract class BpelEvent implements Serializable {
     public void setTimestamp(Date tstamp) {
         _timestamp = tstamp;
     }
-    
+
     public void enableEventPersisting() {
         _cancelEventPersisting = false;
     }
@@ -72,7 +72,7 @@ public abstract class BpelEvent implements Serializable {
     public boolean isEventPersistingCancelled() {
         return _cancelEventPersisting;
     }
-    
+
     public String toString() {
         StringBuilder sb = new StringBuilder("\n" + eventName(this) + ":");
 

@@ -53,7 +53,7 @@ public class DelegateSupport {
         ds.setUser("sa");
         ds.setPassword("");
         _ds = ds;
-        
+
         setup();
         _del = new JdbcDelegate(_ds);
     }

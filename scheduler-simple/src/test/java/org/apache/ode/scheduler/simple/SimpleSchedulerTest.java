@@ -47,7 +47,7 @@ public class SimpleSchedulerTest extends Assert implements JobProcessor {
     ArrayList<JobInfo> _jobs;
     ArrayList<JobInfo> _commit;
     TransactionManager _txm;
-    
+
     @Before
     public void setUp() throws Exception {
         _txm = new GeronimoTransactionManager();
@@ -57,12 +57,12 @@ public class SimpleSchedulerTest extends Assert implements JobProcessor {
         _jobs = new ArrayList<JobInfo>(100);
         _commit = new ArrayList<JobInfo>(100);
     }
-    
+
     @After
     public void tearDown() throws Exception {
         _scheduler.shutdown();
     }
-    
+
     @Test
     public void testConcurrentExec() throws Exception  {
         _scheduler.start();
@@ -87,7 +87,7 @@ public class SimpleSchedulerTest extends Assert implements JobProcessor {
             assertEquals(_jobs.size(), _commit.size());
         }
     }
-    
+
     @Test
     public void testImmediateScheduling() throws Exception {
         _scheduler.start();
@@ -104,7 +104,7 @@ public class SimpleSchedulerTest extends Assert implements JobProcessor {
         Thread.sleep(100);
         assertEquals(1, _jobs.size());
     }
-    
+
     @Test
     public void testStartStop() throws Exception {
         _scheduler.start();
@@ -126,7 +126,7 @@ public class SimpleSchedulerTest extends Assert implements JobProcessor {
         Thread.sleep(1000);
         assertEquals(10, _jobs.size());
     }
-    
+
     @Test
     public void testNearFutureScheduling() throws Exception {
         // speed things up a bit to hit the right code paths
@@ -144,7 +144,7 @@ public class SimpleSchedulerTest extends Assert implements JobProcessor {
         Thread.sleep(8500);
         assertEquals(1, _jobs.size());
     }
-    
+
     @Test
     public void testFarFutureScheduling() throws Exception {
         // speed things up a bit to hit the right code paths
@@ -162,7 +162,7 @@ public class SimpleSchedulerTest extends Assert implements JobProcessor {
         Thread.sleep(8500);
         assertEquals(1, _jobs.size());
     }
-    
+
     @Test
     public void testRecovery() throws Exception {
         // speed things up a bit to hit the right code paths
@@ -187,7 +187,7 @@ public class SimpleSchedulerTest extends Assert implements JobProcessor {
         Thread.sleep(4000);
         assertEquals(3, _jobs.size());
     }
-    
+
     @Test
     public void testRecoverySuppressed() throws Exception {
         // speed things up a bit to hit the right code paths

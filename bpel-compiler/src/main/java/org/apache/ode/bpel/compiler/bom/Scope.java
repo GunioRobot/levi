@@ -161,7 +161,7 @@ public class Scope extends JoinFailureSuppressor {
             return Boolean.FALSE;
         return Boolean.FALSE;
     }
-    
+
     public Boolean getIsolatedScope() {
         String value = getAttribute("isolated", "no");
         if ("yes".equals(value))

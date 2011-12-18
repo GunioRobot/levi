@@ -92,7 +92,7 @@ public class CapturingXMLEntityResolver implements XMLEntityResolver {
       } else {
           identifier = resourceIdentifier.getNamespace();
       }
-      
+
       URI systemId = new URI(FileUtils.encodePath(identifier));
 
       __log.debug("Captured: "+systemId);

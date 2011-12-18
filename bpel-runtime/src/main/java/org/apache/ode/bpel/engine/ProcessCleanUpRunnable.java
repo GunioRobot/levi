@@ -44,7 +44,7 @@ public class ProcessCleanUpRunnable implements MapSerializableRunnable, Contexts
 
     public ProcessCleanUpRunnable() {
     }
-    
+
     public ProcessCleanUpRunnable(Long pidId) {
         _pidId = pidId;
     }

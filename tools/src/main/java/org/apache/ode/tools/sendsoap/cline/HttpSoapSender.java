@@ -126,7 +126,7 @@ public class HttpSoapSender extends BaseCommandlineTool {
             return httpPostMethod.getResponseBodyAsString() + "\n";
         } finally {
             mgr.shutdown();
-        }   
+        }
     }
 
     public static void main(String[] argv) {

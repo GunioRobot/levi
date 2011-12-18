@@ -44,11 +44,11 @@ public class InternalDB extends Database {
     protected boolean _needDerbyShutdown;
 
     protected String _derbyUrl;
-    
+
     public InternalDB(OdeConfigProperties props) {
         super(props);
     }
-    
+
     @Override
     public synchronized void start() throws DatabaseConfigException {
         if (_started)
@@ -61,7 +61,7 @@ public class InternalDB extends Database {
         initDataSource();
         _started = true;
     }
-    
+
     @Override
     public synchronized void shutdown() {
         if (!_started)
@@ -96,7 +96,7 @@ public class InternalDB extends Database {
         _datasource = null;
         _started = false;
     }
-    
+
     protected void initDataSource() throws DatabaseConfigException {
         __log.info(__msgs.msgOdeUsingInternalDb(_odeConfig.getDbIntenralJdbcUrl(), _odeConfig.getDbInternalJdbcDriverClass()));
         initInternalDb(_odeConfig.getDbIntenralJdbcUrl(), _odeConfig.getDbInternalJdbcDriverClass(),

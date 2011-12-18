@@ -62,7 +62,7 @@ public class DaoTest extends TestCase {
         ds = getDataSource();
         org.springframework.mock.jndi.SimpleNamingContextBuilder.emptyActivatedContextBuilder().bind("java:comp/UserTransaction", txm);
         txm.begin();
-        
+
         cf = new DbConfStoreConnectionFactory(ds, new Properties(), true, OdeConfigProperties.DEFAULT_TX_FACTORY_CLASS_NAME);
     }
 

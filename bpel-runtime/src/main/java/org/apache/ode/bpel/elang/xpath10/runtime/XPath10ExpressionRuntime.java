@@ -128,7 +128,7 @@ public class XPath10ExpressionRuntime implements ExpressionLanguageRuntime {
             if (cexp instanceof OXPath10Expression) {
                 msg.append(((OXPath10Expression)cexp).xpath);
             } else {
-                msg.append(cexp.toString());                
+                msg.append(cexp.toString());
             }
             msg.append("'");
             if (ctx.getRootNode() != null) {
@@ -138,7 +138,7 @@ public class XPath10ExpressionRuntime implements ExpressionLanguageRuntime {
             }
             throw new FaultException(cexp.getOwner().constants.qnSelectionFailure, msg.toString());
         }
-            
+
         return (Node) retVal.get(0);
     }
 

@@ -46,7 +46,7 @@ import javax.xml.namespace.QName;
  */
 public class PropertyAliasEvaluationContext implements EvaluationContext {
     private static final Log __log = LogFactory.getLog(PropertyAliasEvaluationContext.class);
-    
+
     private Node _root;
 
     public PropertyAliasEvaluationContext(Element msgData, Map<String, Node> headerParts, OProcess.OPropertyAlias alias) {

@@ -308,7 +308,7 @@ public class ODEAxisService {
         }
 
         private static Map<String, WeakReference<XmlSchema>> cached = new HashMap<String, WeakReference<XmlSchema>>();
-        
+
         protected XmlSchema getXMLSchema(Element element, String baseUri) {
             synchronized (cached) {
 //              String digest = GUID.makeGUID("" + baseUri + ";" + DOMUtils.domToString(element));
@@ -325,7 +325,7 @@ public class ODEAxisService {
                         return s;
                     }
                 }
-                
+
                 XmlSchemaCollection schemaCollection = new XmlSchemaCollection();
                 if (baseUri != null) {
                     schemaCollection.setBaseUri(baseUri);

@@ -134,7 +134,7 @@ public class DOMUtils {
 
         return out.toString();
     }
-    
+
     public static Element getFirstChildElement(Node node) {
         NodeList l = node.getChildNodes();
         for (int i = 0; i < l.getLength(); i++) {

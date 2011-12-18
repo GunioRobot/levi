@@ -325,6 +325,6 @@ public class MockScheduler implements Scheduler {
 
     public void acquireTransactionLocks() {
         // TODO Auto-generated method stub
-        
+
     }
 }

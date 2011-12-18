@@ -481,7 +481,7 @@ public class ProcessAndInstanceManagementImpl implements InstanceManagement, Pro
         });
         return ret;
     }
-    
+
     public VariableInfoDocument setVariable(final String scopeId, final String varName, final XmlObject value) throws ManagementException {
         VariableInfoDocument ret = VariableInfoDocument.Factory.newInstance();
         final TVariableInfo vinf = ret.addNewVariableInfo();
@@ -501,9 +501,9 @@ public class ProcessAndInstanceManagementImpl implements InstanceManagement, Pro
                 if (var == null) {
                     throw new InvalidRequestException("VarNotFound:" + varName);
                 }
-                
+
                 {
-                    ByteArrayOutputStream out = new ByteArrayOutputStream(); 
+                    ByteArrayOutputStream out = new ByteArrayOutputStream();
                     value.save(out, new XmlOptions().setSaveOuter());
                     Node value2 = DOMUtils.getFirstChildElement(DOMUtils.stringToDOM(out.toString()));
                     var.set(value2);

@@ -24,8 +24,8 @@ require "buildr/hibernate"
 
 Buildr.settings.build['jmock'] = "1.2.0"
 
-Buildr::Hibernate::REQUIRES[:xdoclet] = Buildr.group("xdoclet", "xdoclet-xdoclet-module", "xdoclet-hibernate-module", 
- :under=>"xdoclet", :version=>"1.2.3") + ["xdoclet:xjavadoc:jar:1.1-j5"] 
+Buildr::Hibernate::REQUIRES[:xdoclet] = Buildr.group("xdoclet", "xdoclet-xdoclet-module", "xdoclet-hibernate-module",
+ :under=>"xdoclet", :version=>"1.2.3") + ["xdoclet:xjavadoc:jar:1.1-j5"]
 
 
 require File.join(File.dirname(__FILE__), 'repositories.rb')
@@ -305,7 +305,7 @@ define "ode" do
     dao_hibernate = project("dao-hibernate").compile.target
     bpel_store = project("bpel-store").compile.target
 
-    hibernate_requires[:xdoclet] = Buildr.group("xdoclet", "xdoclet-xdoclet-module", "xdoclet-hibernate-module", 
+    hibernate_requires[:xdoclet] = Buildr.group("xdoclet", "xdoclet-xdoclet-module", "xdoclet-hibernate-module",
       :under=>"xdoclet", :version=>"1.2.3") + ["xdoclet:xjavadoc:jar:1.1-j5"] + projects("dao-hibernate")
 
     export = lambda do |properties, source, target|
@@ -329,7 +329,7 @@ define "ode" do
     derby_sql = concat(_("target/derby.sql")=>[ predefined_for[:derby], common_sql, runtime_sql, store_sql ])
     derby_db = Derby.create(_("target/derby/hibdb")=>derby_sql)
     build derby_db
-    
+
     h2_sql = _("src/schema/ode-hib-h2.sql")
     h2_db = H2.create("ode-hib-h2", _("target/h2/hibdb")=>h2_sql)
     build h2_db

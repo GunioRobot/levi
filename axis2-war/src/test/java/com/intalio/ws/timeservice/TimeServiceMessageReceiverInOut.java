@@ -34,47 +34,47 @@
         java.lang.String methodName;
         if((op.getName() != null) && ((methodName = org.apache.axis2.util.JavaUtils.xmlNameToJavaIdentifier(op.getName().getLocalPart())) != null)){
 
-        
+
 
             if("getCityTime".equals(methodName)){
-                
+
                 com.intalio.ws.timeservice.GetCityTimeResponse getCityTimeResponse1 = null;
 	                        com.intalio.ws.timeservice.GetCityTime wrappedParam =
                                                              (com.intalio.ws.timeservice.GetCityTime)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     com.intalio.ws.timeservice.GetCityTime.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
-                                                
+
                                                getCityTimeResponse1 =
-                                                   
-                                                   
+
+
                                                          skel.getCityTime(wrappedParam)
                                                     ;
-                                            
+
                                         envelope = toEnvelope(getSOAPFactory(msgContext), getCityTimeResponse1, false);
-                                    } else 
+                                    } else
 
             if("getUTCTime".equals(methodName)){
-                
+
                 com.intalio.ws.timeservice.GetUTCTimeResponse getUTCTimeResponse3 = null;
 	                        com.intalio.ws.timeservice.GetUTCTime wrappedParam =
                                                              (com.intalio.ws.timeservice.GetUTCTime)fromOM(
                                     msgContext.getEnvelope().getBody().getFirstElement(),
                                     com.intalio.ws.timeservice.GetUTCTime.class,
                                     getEnvelopeNamespaces(msgContext.getEnvelope()));
-                                                
+
                                                getUTCTimeResponse3 =
-                                                   
-                                                   
+
+
                                                          skel.getUTCTime(wrappedParam)
                                                     ;
-                                            
+
                                         envelope = toEnvelope(getSOAPFactory(msgContext), getUTCTimeResponse3, false);
-                                    
+
             } else {
               throw new java.lang.RuntimeException("method not found");
             }
-        
+
 
         newMsgContext.setEnvelope(envelope);
         }
@@ -83,102 +83,102 @@
         throw org.apache.axis2.AxisFault.makeFault(e);
         }
         }
-        
+
         //
             private  org.apache.axiom.om.OMElement  toOM(com.intalio.ws.timeservice.GetCityTime param, boolean optimizeContent)
             throws org.apache.axis2.AxisFault {
 
-            
+
                         try{
                              return param.getOMElement(com.intalio.ws.timeservice.GetCityTime.MY_QNAME,
                                           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
                         } catch(org.apache.axis2.databinding.ADBException e){
                             throw org.apache.axis2.AxisFault.makeFault(e);
                         }
-                    
+
 
             }
-        
+
             private  org.apache.axiom.om.OMElement  toOM(com.intalio.ws.timeservice.GetCityTimeResponse param, boolean optimizeContent)
             throws org.apache.axis2.AxisFault {
 
-            
+
                         try{
                              return param.getOMElement(com.intalio.ws.timeservice.GetCityTimeResponse.MY_QNAME,
                                           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
                         } catch(org.apache.axis2.databinding.ADBException e){
                             throw org.apache.axis2.AxisFault.makeFault(e);
                         }
-                    
+
 
             }
-        
+
             private  org.apache.axiom.om.OMElement  toOM(com.intalio.ws.timeservice.GetUTCTime param, boolean optimizeContent)
             throws org.apache.axis2.AxisFault {
 
-            
+
                         try{
                              return param.getOMElement(com.intalio.ws.timeservice.GetUTCTime.MY_QNAME,
                                           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
                         } catch(org.apache.axis2.databinding.ADBException e){
                             throw org.apache.axis2.AxisFault.makeFault(e);
                         }
-                    
+
 
             }
-        
+
             private  org.apache.axiom.om.OMElement  toOM(com.intalio.ws.timeservice.GetUTCTimeResponse param, boolean optimizeContent)
             throws org.apache.axis2.AxisFault {
 
-            
+
                         try{
                              return param.getOMElement(com.intalio.ws.timeservice.GetUTCTimeResponse.MY_QNAME,
                                           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
                         } catch(org.apache.axis2.databinding.ADBException e){
                             throw org.apache.axis2.AxisFault.makeFault(e);
                         }
-                    
+
 
             }
-        
+
                     private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, com.intalio.ws.timeservice.GetCityTimeResponse param, boolean optimizeContent)
                         throws org.apache.axis2.AxisFault{
                       try{
                           org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
-                           
+
                                     emptyEnvelope.getBody().addChild(param.getOMElement(com.intalio.ws.timeservice.GetCityTimeResponse.MY_QNAME,factory));
-                                
+
 
                          return emptyEnvelope;
                     } catch(org.apache.axis2.databinding.ADBException e){
                         throw org.apache.axis2.AxisFault.makeFault(e);
                     }
                     }
-                    
+
                          private com.intalio.ws.timeservice.GetCityTimeResponse wrapgetCityTime(){
                                 com.intalio.ws.timeservice.GetCityTimeResponse wrappedElement = new com.intalio.ws.timeservice.GetCityTimeResponse();
                                 return wrappedElement;
                          }
-                    
+
                     private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, com.intalio.ws.timeservice.GetUTCTimeResponse param, boolean optimizeContent)
                         throws org.apache.axis2.AxisFault{
                       try{
                           org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
-                           
+
                                     emptyEnvelope.getBody().addChild(param.getOMElement(com.intalio.ws.timeservice.GetUTCTimeResponse.MY_QNAME,factory));
-                                
+
 
                          return emptyEnvelope;
                     } catch(org.apache.axis2.databinding.ADBException e){
                         throw org.apache.axis2.AxisFault.makeFault(e);
                     }
                     }
-                    
+
                          private com.intalio.ws.timeservice.GetUTCTimeResponse wrapgetUTCTime(){
                                 com.intalio.ws.timeservice.GetUTCTimeResponse wrappedElement = new com.intalio.ws.timeservice.GetUTCTimeResponse();
                                 return wrappedElement;
                          }
-                    
+
 
 
         /**
@@ -195,35 +195,35 @@
         java.util.Map extraNamespaces) throws org.apache.axis2.AxisFault{
 
         try {
-        
+
                 if (com.intalio.ws.timeservice.GetCityTime.class.equals(type)){
-                
+
                            return com.intalio.ws.timeservice.GetCityTime.Factory.parse(param.getXMLStreamReaderWithoutCaching());
-                    
+
 
                 }
-           
+
                 if (com.intalio.ws.timeservice.GetCityTimeResponse.class.equals(type)){
-                
+
                            return com.intalio.ws.timeservice.GetCityTimeResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
-                    
+
 
                 }
-           
+
                 if (com.intalio.ws.timeservice.GetUTCTime.class.equals(type)){
-                
+
                            return com.intalio.ws.timeservice.GetUTCTime.Factory.parse(param.getXMLStreamReaderWithoutCaching());
-                    
+
 
                 }
-           
+
                 if (com.intalio.ws.timeservice.GetUTCTimeResponse.class.equals(type)){
-                
+
                            return com.intalio.ws.timeservice.GetUTCTimeResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
-                    
+
 
                 }
-           
+
         } catch (java.lang.Exception e) {
         throw org.apache.axis2.AxisFault.makeFault(e);
         }
@@ -232,7 +232,7 @@
 
 
 
-    
+
 
         /**
         *  A utility method that copies the namepaces from the SOAPEnvelope
@@ -260,4 +260,3 @@
     }
 
         }//end of class
-    

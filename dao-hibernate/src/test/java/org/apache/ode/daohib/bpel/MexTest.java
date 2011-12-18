@@ -61,14 +61,14 @@ public class MexTest extends BaseTestDAO {
     public void test() throws Exception {
         MessageExchangeDAO mex = daoConn.createMessageExchange('M');
         mex.lockPremieMessages();
-        
+
         SessionManager sm = ((BpelDAOConnectionImpl) daoConn)._sm;
         HCorrelator correlator = new HCorrelator();
         correlator.setCorrelatorId("abc");
         sm.getSession().save(correlator);
         new CorrelatorDaoImpl(sm, correlator).dequeueMessage(new CorrelationKeySet("@2[12~a~b]"));
     }
-    
+
     public void testCleanup() throws Exception {
         SessionManager sm = ((BpelDAOConnectionImpl) daoConn)._sm;
         ProcessDAO p = daoConn.createProcess(QName.valueOf("abc"), QName.valueOf("abc"), "abc", 1);
@@ -82,7 +82,7 @@ public class MexTest extends BaseTestDAO {
         txm.commit();
         txm.begin();
         assertEquals(1, sm.getSession().createSQLQuery("select count(*) from BPEL_MEX_PROPS").list().get(0));
-        
+
         Set<CLEANUP_CATEGORY> cleanupCategories = EnumSet.allOf(CLEANUP_CATEGORY.class);
         instance.delete(cleanupCategories);
         txm.commit();

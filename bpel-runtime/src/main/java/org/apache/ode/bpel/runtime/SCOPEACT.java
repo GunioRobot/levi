@@ -50,7 +50,7 @@ import org.w3c.dom.Element;
  */
 public class SCOPEACT extends ACTIVITY {
     private static final Log __log = LogFactory.getLog(SCOPEACT.class);
-    
+
     private static final long serialVersionUID = -4593029783757994939L;
 
     public SCOPEACT(ActivityInfo self, ScopeFrame scopeFrame, LinkFrame linkFrame) {
@@ -59,7 +59,7 @@ public class SCOPEACT extends ACTIVITY {
 
     public void run() {
 
-        
+
         if (((OScope) _self.o).isolatedScope) {
             __log.debug("found ISOLATED scope, instance ISOLATEDGUARD");
             instance(new ISOLATEDGUARD(createLockList(), newChannel(SynchChannel.class)));
@@ -79,7 +79,7 @@ public class SCOPEACT extends ACTIVITY {
                 _self.parent = psc;
             } else
                 linkframe = _linkFrame;
-            
+
             instance(new SCOPE(_self, newFrame, linkframe));
         }
 
@@ -88,7 +88,7 @@ public class SCOPEACT extends ACTIVITY {
     /**
      * Create an ordered list of required locks that need to be acquired before the activity can execute. The list is ordered to
      * prevent dead-lock. The method of ordering is not especially important, so long as the same method is always used.
-     * 
+     *
      * @return
      */
     private List<IsolationLock> createLockList() {
@@ -110,7 +110,7 @@ public class SCOPEACT extends ACTIVITY {
     /**
      * Create outgoing link interceptors. Necessary for ISOLATED and ATOMIC (non-standard ext) scopes. I.e we need to prevent the
      * links from coming out until the scope completes successfully.
-     * 
+     *
      */
     private LinkFrame createInterceptorLinkFrame() {
         LinkFrame newframe = new LinkFrame(_linkFrame);
@@ -124,9 +124,9 @@ public class SCOPEACT extends ACTIVITY {
 
     /**
      * Link Status interceptor. Used in ISOLATED and ATOMIC scopes to prevent links from getting out until its time.
-     * 
+     *
      * @author Maciej Szefler <mszefler at gmail dot com>
-     * 
+     *
      */
     private class LINKSTATUSINTERCEPTOR extends BpelJacobRunnable {
         private static final long serialVersionUID = 3104008741240676253L;
@@ -153,32 +153,32 @@ public class SCOPEACT extends ACTIVITY {
             __log.debug("LINKSTATUSINTERCEPTOR: running ");
 
             Set<ChannelListener> mlset = new HashSet<ChannelListener>();
-            
+
             if (_status == null)
                 mlset.add(new ValChannelListener(_self) {
-    
+
                     private static final long serialVersionUID = 5029554538593371750L;
-    
+
                     /** Our owner will notify us when it becomes clear what to do with the links. */
                     public void val(Object retVal) {
                         __log.debug("LINKSTATUSINTERCEPTOR: status received " + retVal);
-                        
+
                         _status = (Boolean) retVal;
                         for (OLink available : _statuses.keySet())
                             _linkFrame.resolve(available).pub.linkStatus(_statuses.get(available) && _status);
-    
+
                         // Check if we still need to wait around for more links.
                         if (!isDone())
                             instance(LINKSTATUSINTERCEPTOR.this);
-    
+
                     }
-    
+
                 });
 
             for (final Map.Entry<OLink, LinkInfo> m : _interceptedChannels.links.entrySet()) {
                 if (_statuses.containsKey(m.getKey()))
                     continue;
-            
+
                 mlset.add(new LinkStatusChannelListener(m.getValue().pub) {
                     private static final long serialVersionUID = 1568144473514091593L;
 
@@ -186,7 +186,7 @@ public class SCOPEACT extends ACTIVITY {
                         _statuses.put(m.getKey(), value);
                         if (_status != null)
                             _linkFrame.resolve(m.getKey()).pub.linkStatus(value && _status);
-                        
+
                         if (!isDone())
                             instance(LINKSTATUSINTERCEPTOR.this);
 
@@ -194,7 +194,7 @@ public class SCOPEACT extends ACTIVITY {
 
                 });
             }
-            
+
             object(false, mlset);
 
         }
@@ -209,11 +209,11 @@ public class SCOPEACT extends ACTIVITY {
         }
 
     }
-    
-    
+
+
     /**
      * Guard for ISOLATED scopes to prevent start until all locks are acquired.
-     * 
+     *
      * @author Maciej Szefler <mszefler at gmail dot com>
      *
      */
@@ -241,7 +241,7 @@ public class SCOPEACT extends ACTIVITY {
                 ScopeFrame newFrame = new ScopeFrame((OScope) _self.o, getBpelRuntimeContext().createScopeInstance(
                         _scopeFrame.scopeInstanceId, (OScope) _self.o), _scopeFrame, null);
 
-                
+
                 final ParentScopeChannel parent = _self.parent;
                 _self.parent = newChannel(ParentScopeChannel.class);
                 ValChannel lsi = newChannel(ValChannel.class);
@@ -255,7 +255,7 @@ public class SCOPEACT extends ACTIVITY {
 
                 // try to acquire the locks in sequence (IMPORTANT) not all at once.
                 IsolationLock il = _locksNeeded.get(0);
-                
+
                 if (il.writeLock)
                     il.lockChannel.writeLock(_synchChannel);
                 else
@@ -278,7 +278,7 @@ public class SCOPEACT extends ACTIVITY {
 
     /**
      * Interceptor that waits for the scope to finish and unlock the acquired locks.
-     * 
+     *
      * @author Maciej Szefler <mszefler at gmail dot com>
      *
      */
@@ -291,7 +291,7 @@ public class SCOPEACT extends ACTIVITY {
         private final ParentScopeChannel _parent;
 
         private final SynchChannel _synchChannel;
-        
+
         private final List<IsolationLock> _locks;
 
         private final ValChannel _linkStatusInterceptor;
@@ -345,14 +345,14 @@ public class SCOPEACT extends ACTIVITY {
 
         /**
          * Unlock all the acquired locks.
-         * 
+         *
          */
         private void unlockAll() {
             __log.debug("UNLOCKER: unlockAll: " + _locks);
 
             if (((OScope)SCOPEACT.this._self.o).atomicScope)
                 getBpelRuntimeContext().forceFlush();
-                
+
             for (IsolationLock il : _locks)
                 il.lockChannel.unlock(_synchChannel);
             _locks.clear();
@@ -362,9 +362,9 @@ public class SCOPEACT extends ACTIVITY {
 
     /**
      * Representation of a lock needed by an isolated scope.
-     * 
+     *
      * @author Maciej Szefler <mszefler at gmail dot com>
-     * 
+     *
      */
     private static class IsolationLock implements Comparable<IsolationLock>, Serializable {
         private static final long serialVersionUID = 4214864393241172705L;

@@ -147,8 +147,8 @@ public class BindingContextImpl implements BindingContext {
             try {
                 String axisServiceName = service.getAxisService().getName();
                 AxisService axisService = _server._axisConfig.getService(axisServiceName);
-                
-                //axisService might be null if it could not be properly activated before. 
+
+                //axisService might be null if it could not be properly activated before.
                 if (axisService != null) {
                     // first, de-allocate its schemas
                     axisService.releaseSchemaList();

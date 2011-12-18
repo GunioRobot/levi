@@ -90,7 +90,7 @@ public abstract class BPELTestAbstract {
 
     public static TransactionManager _txManager = null;
     public static DataSource _dataSource = null;
-    
+
     protected ProcessStore store;
 
     protected MessageExchangeContextImpl mexContext;
@@ -98,7 +98,7 @@ public abstract class BPELTestAbstract {
     protected EntityManager em;
 
     protected EntityManagerFactory emf;
-    
+
     protected ExecutorService executorService = Executors.newFixedThreadPool(1);
 
     protected SimpleScheduler scheduler;
@@ -131,7 +131,7 @@ public abstract class BPELTestAbstract {
                     c.prepareStatement(org.apache.commons.io.IOUtils.toString(getClass().getResourceAsStream("/scheduler-schema.sql"))).execute();
                     c.close();
                 } catch (Exception e) {
-                    
+
                 }
                 _txManager.commit();
             }
@@ -139,7 +139,7 @@ public abstract class BPELTestAbstract {
 //        try {
 //            _dataSource.getConnection();
 //        } catch (Exception e) {
-//            
+//
 //        }
 //        createDataSource(false);
         _failures = new CopyOnWriteArrayList<Failure>();
@@ -202,7 +202,7 @@ public abstract class BPELTestAbstract {
         _deployed = null;
         _deployments = null;
         _invocations = null;
-        
+
 
     }
 
@@ -652,7 +652,7 @@ public abstract class BPELTestAbstract {
                 }
             }
         }
-        
+
         public void run2() throws Exception {
             final MyRoleMessageExchange[] mex = new MyRoleMessageExchange[1];
             final Future[] running = new Future[1];

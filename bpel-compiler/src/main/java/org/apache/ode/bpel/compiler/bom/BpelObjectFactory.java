@@ -287,18 +287,18 @@ public class BpelObjectFactory {
 
     public static class BOMSAXErrorHandler implements ErrorHandler {
         private static final Log __log = LogFactory.getLog(BOMSAXErrorHandler.class);
-        
+
     	private boolean ok = true;
     	private boolean strict = false;
-    	
+
     	public BOMSAXErrorHandler(boolean strict) {
     	    this.strict = strict;
     	}
-    	
+
     	private String formatException(SAXParseException exception) {
     		return exception.getPublicId() + ":" + exception.getSystemId() + ":" + exception.getLineNumber() + ":" + exception.getColumnNumber() + ":" + exception.getMessage();
     	}
-    	
+
     	public boolean wasOK() { return ok; }
 		public void error(SAXParseException exception) throws SAXException {
 			ok = false;
@@ -312,7 +312,7 @@ public class BpelObjectFactory {
 		public void fatalError(SAXParseException exception) throws SAXException {
 			ok = false;
 			if (strict) {
-			    __log.fatal(formatException(exception));    
+			    __log.fatal(formatException(exception));
 			} else {
 			    __log.warn(formatException(exception));
 			}
@@ -322,7 +322,7 @@ public class BpelObjectFactory {
 			__log.warn(formatException(exception));
 		}
     }
-    
+
     /**
      * Parse a BPEL process found at the input source.
      * @param isrc input source.
@@ -348,14 +348,14 @@ public class BpelObjectFactory {
         _xr.setContentHandler(new DOMBuilderContentHandler(doc));
         _xr.setFeature("http://xml.org/sax/features/namespaces",true);
         _xr.setFeature("http://xml.org/sax/features/namespace-prefixes", true);
-        
+
         _xr.setFeature("http://xml.org/sax/features/validation", true);
 		XMLParserUtils.addExternalSchemaURL(_xr, Bpel11QNames.NS_BPEL4WS_2003_03, Bpel11QNames.NS_BPEL4WS_2003_03);
 		XMLParserUtils.addExternalSchemaURL(_xr, Bpel20QNames.NS_WSBPEL2_0, Bpel20QNames.NS_WSBPEL2_0);
 		XMLParserUtils.addExternalSchemaURL(_xr, Bpel20QNames.NS_WSBPEL2_0_FINAL_EXEC, Bpel20QNames.NS_WSBPEL2_0_FINAL_EXEC);
 		XMLParserUtils.addExternalSchemaURL(_xr, Bpel20QNames.NS_WSBPEL2_0_FINAL_ABSTRACT, Bpel20QNames.NS_WSBPEL2_0_FINAL_ABSTRACT);
-        
-		boolean strict = Boolean.parseBoolean(System.getProperty("org.apache.ode.compiler.failOnValidationErrors", "false")); 
+
+		boolean strict = Boolean.parseBoolean(System.getProperty("org.apache.ode.compiler.failOnValidationErrors", "false"));
 		BOMSAXErrorHandler errorHandler = new BOMSAXErrorHandler(strict);
         _xr.setErrorHandler(errorHandler);
         _xr.parse(isrc);

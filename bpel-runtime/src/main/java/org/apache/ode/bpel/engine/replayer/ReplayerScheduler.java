@@ -159,6 +159,6 @@ public class ReplayerScheduler implements Scheduler {
 
     public void acquireTransactionLocks() {
         // TODO Auto-generated method stub
-        
+
     }
 }

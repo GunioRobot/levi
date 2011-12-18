@@ -1,8 +1,8 @@
 /*
  * SOURCE FILE GENERATATED BY JACOB CHANNEL CLASS GENERATOR
- * 
- *               !!! DO NOT EDIT !!!! 
- * 
+ *
+ *               !!! DO NOT EDIT !!!!
+ *
  * Generated On  : Thu Jun 24 22:35:42 EST 2010
  * For Interface : org.apache.ode.bpel.runtime.channels.Compensation
  */
@@ -13,8 +13,8 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.commons.logging.Log;
 
 /**
- * An auto-generated channel listener abstract class for the 
- * {@link org.apache.ode.bpel.runtime.channels.Compensation} channel type. 
+ * An auto-generated channel listener abstract class for the
+ * {@link org.apache.ode.bpel.runtime.channels.Compensation} channel type.
  * @see org.apache.ode.bpel.runtime.channels.Compensation
  * @see org.apache.ode.bpel.runtime.channels.CompensationChannel
  */
@@ -25,7 +25,7 @@ public abstract class CompensationChannelListener
 
     private static final Log __log = LogFactory.getLog(org.apache.ode.bpel.runtime.channels.Compensation.class);
 
-    protected Log log() { return __log; } 
+    protected Log log() { return __log; }
 
     protected CompensationChannelListener(org.apache.ode.bpel.runtime.channels.CompensationChannel channel) {
        super(channel);

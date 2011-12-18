@@ -222,7 +222,7 @@ public abstract class Axis2TestBase {
         }
 
         startServer();
-        
+
         DeploymentEngine.buildServiceGroup(getClass().getResourceAsStream("/test-services.xml"), Thread.currentThread().getContextClassLoader(), "testGroup", server.getConfigurationContext(), new ArchiveReader(), new HashMap());
     }
 
@@ -242,7 +242,7 @@ public abstract class Axis2TestBase {
         }
         server = null;
     }
-    
+
     public String sendRequestFile(String endpoint, String bundleName, String filename) {
         return sendRequestFile(endpoint, bundleName + "/" + filename);
     }

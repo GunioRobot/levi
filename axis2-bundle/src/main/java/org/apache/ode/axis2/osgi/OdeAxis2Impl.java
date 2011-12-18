@@ -11,12 +11,12 @@ import org.osgi.framework.BundleContext;
 import org.springframework.osgi.context.BundleContextAware;
 
 public class OdeAxis2Impl implements OdeAxis2, BundleContextAware {
-    
+
     private ODEAxis2Server server;
     private BundleContext bundleContext;
-    
+
     private ODEConfigProperties config;
-    
+
     public void init() throws Exception {
         String rootDir = System.getProperty("org.apache.ode.configDir", "ode");
         File confFile = new File(rootDir + "/conf/axis2.xml");
@@ -26,7 +26,7 @@ public class OdeAxis2Impl implements OdeAxis2, BundleContextAware {
         server = new ODEAxis2Server(new File(rootDir).getAbsolutePath(), new File(rootDir).getAbsolutePath(), confFile.getAbsolutePath(), Integer.parseInt(config.getProperty("port")), config);
         server.start();
     }
-    
+
     public void destroy() throws Exception {
         server.stop();
         server = null;

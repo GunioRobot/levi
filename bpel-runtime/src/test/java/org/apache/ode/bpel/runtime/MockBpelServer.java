@@ -422,10 +422,10 @@ class MockBpelServer {
             return true;
         }
 
-        
+
         public void acquireTransactionLocks() {
             // TODO Auto-generated method stub
-            
+
         }
     }
 }

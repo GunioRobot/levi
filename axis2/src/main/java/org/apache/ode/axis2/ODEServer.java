@@ -128,7 +128,7 @@ public class ODEServer {
 
     protected MultiThreadedHttpConnectionManager httpConnectionManager;
     protected IdleConnectionTimeoutThread idleConnectionTimeoutThread;
-    
+
     public Runnable txMgrCreatedCallback;
 
     public void init(ServletConfig config, AxisConfiguration axisConf) throws ServletException {
@@ -138,7 +138,7 @@ public class ODEServer {
     public void init(String contextPath, AxisConfiguration axisConf) throws ServletException {
         init(contextPath, axisConf, null);
     }
-    
+
     public void init(String contextPath, AxisConfiguration axisConf, ODEConfigProperties config) throws ServletException {
         _axisConfig = axisConf;
         String rootDir = System.getProperty("org.apache.ode.rootDir");

@@ -36,7 +36,7 @@ public interface DeferredProcessInstanceCleanable {
      * @return database id
      */
     Long getPidId();
-    
+
     /**
      * Deletes instances and data for this process, the number of rows gets deletes is limited
      * by the transaction size.

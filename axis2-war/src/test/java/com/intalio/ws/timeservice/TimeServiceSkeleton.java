@@ -13,7 +13,7 @@ public class TimeServiceSkeleton {
 
     /**
      * Auto generated method signature
-     * 
+     *
      * @param getCityTime
      */
 
@@ -26,7 +26,7 @@ public class TimeServiceSkeleton {
 
     /**
      * Auto generated method signature
-     * 
+     *
      * @param getUTCTime
      */
 

@@ -128,7 +128,7 @@ public interface BpelServer {
 
     /**
      * Sometimes it's required to acquire table locks at beginning of transaction.
-     * This is for H2 database. 
+     * This is for H2 database.
      */
     void acquireTransactionLocks();
 }

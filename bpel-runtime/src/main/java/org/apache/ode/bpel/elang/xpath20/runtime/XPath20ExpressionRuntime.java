@@ -170,7 +170,7 @@ public class XPath20ExpressionRuntime implements ExpressionLanguageRuntime {
             if (cexp instanceof OXPath10Expression) {
                 msg.append(((OXPath10Expression)cexp).xpath);
             } else {
-                msg.append(cexp.toString());                
+                msg.append(cexp.toString());
             }
             msg.append("'");
             if (ctx.getRootNode() != null) {

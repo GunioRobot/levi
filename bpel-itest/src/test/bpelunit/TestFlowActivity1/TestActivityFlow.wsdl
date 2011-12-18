@@ -61,7 +61,7 @@
 					<xsd:element name="probeData" type="xsd:string" />
 				</xsd:sequence>
 			</xsd:complexType>
-			
+
 		</xsd:schema>
 	</wsdl:types>
 

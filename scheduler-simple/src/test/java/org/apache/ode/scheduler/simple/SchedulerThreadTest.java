@@ -46,12 +46,12 @@ public class SchedulerThreadTest extends Assert implements TaskRunner {
     SchedulerThread _st;
 
     List<TR> _tasks = new ArrayList<TR>(100);
-    
+
     @Before
     public void setUp() throws Exception {
         _st = new SchedulerThread(this);
     }
-    
+
     @Test
     public void testSchedulingResolution() throws Exception {
         _st.start();
@@ -62,7 +62,7 @@ public class SchedulerThreadTest extends Assert implements TaskRunner {
         assertTrue(_tasks.get(0).time < schedtime + SCHED_TOLERANCE / 2);
         assertTrue(_tasks.get(0).time > schedtime - SCHED_TOLERANCE / 2);
     }
-    
+
     @Test
     public void testStartStop() throws Exception {
         _st.start();
@@ -75,7 +75,7 @@ public class SchedulerThreadTest extends Assert implements TaskRunner {
         Thread.sleep(SCHED_TOLERANCE);
         assertEquals(1,_tasks.size());
     }
-    
+
     @Test
     public void testParallelEnqueue() throws Exception {
         _st.start();
